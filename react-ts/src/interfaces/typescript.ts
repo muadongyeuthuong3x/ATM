@@ -1,40 +1,35 @@
-import { ChangeEvent, FormEvent } from 'react'
-import myReducer from './../store/Reducer/index'
+import { ChangeEvent, FormEvent } from "react";
+import myReducer from "./../store/Reducer/index";
 export type InputChange = ChangeEvent<
-  | HTMLInputElement 
-  | HTMLTextAreaElement 
-  | HTMLSelectElement
->
+  HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+>;
 
-export type FormSubmit = FormEvent<HTMLFormElement>
-
+export type FormSubmit = FormEvent<HTMLFormElement>;
 
 export interface Registerts {
-  email:string
-  password:string
+  email: string;
+  password: string;
 }
 
-
-export  interface ATM {
+export interface ATM {
   client: string;
   id: string;
-  name:  string;
-  status:  string;
-  transaction:number;
-  remove:boolean;
+  name: string;
+  status: string;
+  transaction: number;
+  remove: boolean;
 }
 
-
 export interface token {
-  token:string
+  token: string;
 }
 
 export interface process {
-  processedClient?:string
+  processedClient?: string;
 }
-export interface queue{
-  transaction:string,
-  name:string
+export interface queue {
+  transaction: string;
+  name: string;
 }
 
-export type RootStore = ReturnType<typeof myReducer>
+export type RootStore = ReturnType<typeof myReducer>;

@@ -1,20 +1,16 @@
 import * as types from "./../../interfaces/processClient";
-import {process} from './../../interfaces/typescript';
+import { process } from "./../../interfaces/typescript";
 
-
-const ProcessClientReducer = ( state: process = {} , action: types.PROCESSCLIENTCODE ): process=> {
-  
-    switch (action.type) {
-     
+const ProcessClientReducer = (
+  state: process = {},
+  action: types.PROCESSCLIENTCODE
+): process => {
+  switch (action.type) {
     case types.GET_PROCESSCLIENT:
-         return  action.payload
-      default:
-        return state;
-    }
-
+      return action.payload;
+    default:
+      return state;
   }
+};
 
-
-
-
-  export default ProcessClientReducer;
+export default ProcessClientReducer;

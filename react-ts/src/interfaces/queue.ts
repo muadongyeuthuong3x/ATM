@@ -1,11 +1,10 @@
-export const GET_QUEUE ='GET_QUEUE'
+export const GET_QUEUE = "GET_QUEUE";
 
-import { queue }  from './typescript'
+import { queue } from "./typescript";
 
-export interface QUEUECode{
+export interface QUEUECode {
+  type: typeof GET_QUEUE;
+  payload: queue[];
+}
 
-    type: typeof GET_QUEUE,
-    payload: queue[]
-  }
-
-  export type LISTQUEUE = QUEUECode
+export type LISTQUEUE = QUEUECode;

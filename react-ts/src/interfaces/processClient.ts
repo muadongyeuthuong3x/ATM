@@ -1,11 +1,10 @@
-export const GET_PROCESSCLIENT ='GET_PROCESSCLIENT'
+export const GET_PROCESSCLIENT = "GET_PROCESSCLIENT";
 
-import { process }  from './typescript'
+import { process } from "./typescript";
 
-export interface PROCESSCLIENT{
+export interface PROCESSCLIENT {
+  type: typeof GET_PROCESSCLIENT;
+  payload: process;
+}
 
-    type: typeof GET_PROCESSCLIENT
-    payload: process
-  }
-
-  export type PROCESSCLIENTCODE = PROCESSCLIENT
+export type PROCESSCLIENTCODE = PROCESSCLIENT;
