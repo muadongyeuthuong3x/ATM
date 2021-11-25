@@ -1,0 +1,65 @@
+.blocktrangchu {
+    margin-top: 30px;
+}
+.blockitemsatm{
+    width:100%
+}
+.blockimg {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    position: relative;
+}
+.blockimg img{
+    width: 100%;
+}
+.viewatms{
+    margin-top:10px;
+    padding-top:10px;
+    overflow-y: scroll;
+    height: 300px;
+}
+.blockpeople{
+    display: flex;
+}
+.blockpeople img{
+    width: 50px;
+    height: 50px;
+}
+
+.ttpeople{
+    margin-left: 10px;
+}
+
+.icondeletecar{
+    position: absolute;
+    top: -7%;
+    font-size: 30px;
+    right: -5%;
+   cursor: pointer;
+}
+.people{
+    margin-left:10px
+}
+.transaction{
+    margin-top:10px;
+}
+.imgpeople{
+    width: 60px;
+    height: 60px;
+}
+.Listpeople{
+    margin-top: 30px;
+    background: whitesmoke;
+    padding: 10px;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.BlockViewPeoples {
+    background: white;
+    padding: 10px;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
