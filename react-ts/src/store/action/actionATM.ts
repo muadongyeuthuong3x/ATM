@@ -1,14 +1,14 @@
 import { Dispatch } from 'redux'
 import {  CREATE_ATM,  GET_ATM   ,ATMTYPECODE  } from "../../interfaces/curdTypescript";
 import {LISTQUEUE   , GET_QUEUE }   from "../../interfaces/queue";
-import { postAPI  , getAPI , getAPIQUEUE} from './../../api/apiclient';
+import { postApi  , getApi , getApiQueue} from './../../api/apiclient';
 import { toast } from 'react-toastify';
 
-export const createATM = (nameATM: string, token: string) =>  
+export const createAtm = (nameAtm: string, token: string) =>  
 async(dispatch: Dispatch<ATMTYPECODE>) => {
   try {
 
-  const res = await postAPI( nameATM , token);
+  const res = await postApi( nameAtm, token);
 
      dispatch({
        type: CREATE_ATM,
@@ -20,10 +20,10 @@ async(dispatch: Dispatch<ATMTYPECODE>) => {
  }
 }
 
-export const getATM = (token: string) => async(dispatch: Dispatch<ATMTYPECODE>) => {
+export const getAtm = (token: string) => async(dispatch: Dispatch<ATMTYPECODE>) => {
   try {
 
-   const res = await getAPI(token)
+   const res = await getApi(token)
     dispatch({
       type: GET_ATM,
       payload: res
@@ -36,10 +36,10 @@ export const getATM = (token: string) => async(dispatch: Dispatch<ATMTYPECODE>) 
  }
 }
 
-export const getQUEUE = (token: string) => async(dispatch: Dispatch<LISTQUEUE>) => {
+export const getQueue = (token: string) => async(dispatch: Dispatch<LISTQUEUE>) => {
   try {
 
-   const res = await getAPIQUEUE(token)
+   const res = await getApiQueue(token)
     dispatch({
       type: GET_QUEUE,
       payload: res

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 
 
-export const postAPI = async ( nameATM: string, token:string) => {
+export const postApi = async ( nameATM: string, token:string) => {
     const name = {
      name: nameATM }
     
@@ -12,7 +12,7 @@ export const postAPI = async ( nameATM: string, token:string) => {
     return res.data;
   }
 
-  export const getAPI = async (  token:string) => {
+  export const getApi = async (  token:string) => {
   
     const res = await axios.get("http://localhost:5000/api/v1/atms",  {
       headers: {Authorization: `Bearer ${token}` }
@@ -22,7 +22,7 @@ export const postAPI = async ( nameATM: string, token:string) => {
     return res.data.atm;
   }
 
-  export const getAPIprocessClient = async ( token:string) => {
+  export const getApiProcessClient = async ( token:string) => {
   
     const res = await axios.get("http://localhost:5000/api/v1/atms/processClient",  {
       headers: {Authorization: `Bearer ${token}` }
@@ -30,8 +30,8 @@ export const postAPI = async ( nameATM: string, token:string) => {
     console.log(typeof res.data)
     return res.data;
   }
-
-  export const getAPIDELETEATM = async (id:string , token:string) => {
+ 
+  export const  getApiDeleteAtm = async (id:string , token:string) => {
    
     try {
       const res = await axios.delete(`http://localhost:5000/api/v1/atms/${id}`,  {
@@ -44,7 +44,8 @@ export const postAPI = async ( nameATM: string, token:string) => {
     
   }
 
-  export const getAPICREATEPEOPLE = async ( namePeople:string , transaction:number , token:string) => {
+  
+  export const postApiCreatePeople = async ( namePeople:string , transaction:number , token:string) => {
     const datapeople = {
       namePeople,
       transaction
@@ -62,7 +63,7 @@ export const postAPI = async ( nameATM: string, token:string) => {
 
 
 
-  export const getAPIQUEUE = async (token:string) => {
+  export const getApiQueue = async (token:string) => {
 
     try {
       const res = await axios.get("http://localhost:5000/api/v1/atms/queue", {

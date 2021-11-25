@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
           setTimeout(function(){
             toast.success(res.data.message) }, 1000);
             Cookies.set('cookielogin', res.data.PRIVATE_TOKEN)
-            window.location.href  = "/trangchu"
+            window.location.href  = "/home"
         }).catch(err=>{
             toast.error(err.response.data)
         })
@@ -56,11 +56,11 @@ return (
      
     </Form.Group>
 
-    <Button variant="primary" type="submit">Đăng kí </Button>
+    <Button variant="primary" type="submit">Register </Button>
 
     <br/>
     <Link to="/login" >
-Đăng Nhập  </Link> 
+Login  </Link> 
 
 </Form>
 

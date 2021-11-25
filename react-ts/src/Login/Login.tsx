@@ -28,7 +28,7 @@ import { Link } from "react-router-dom";
            return false
       }
       Cookies.set('cookielogin', res.data.PRIVATE_TOKEN)
-      window.location.href  = "/trangchu";
+      window.location.href  = "/home";
       } catch (err:any) {
       //  toast.error(err.response.data)
       }
@@ -59,10 +59,10 @@ return (
      
     </Form.Group>
 
-    <Button variant="primary" type="submit">Đăng Nhập </Button>
+    <Button variant="primary" type="submit">Login </Button>
     <br/>
     <Link to="/register" >
-Đăng Kí  </Link> 
+Register  </Link> 
 </Form>
 
 </div>

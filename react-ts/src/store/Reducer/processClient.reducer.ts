@@ -1,10 +1,8 @@
 import * as types from "./../../interfaces/processClient";
 import {process} from './../../interfaces/typescript';
 
-const data = {
-  processedClient : ""
-}
-const ProcessClientReducer = ( state: process = data  , action: types.PROCESSCLIENTCODE ): process=> {
+
+const ProcessClientReducer = ( state: process = {} , action: types.PROCESSCLIENTCODE ): process=> {
   
     switch (action.type) {
      

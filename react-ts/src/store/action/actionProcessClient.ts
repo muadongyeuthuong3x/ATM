@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import { PROCESSCLIENTCODE ,GET_PROCESSCLIENT } from "../../interfaces/processClient";
-import { getAPIprocessClient} from './../../api/apiclient';
+import { getApiProcessClient} from './../../api/apiclient';
 import { toast } from 'react-toastify';
 
 
@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 export const getApiProcess = (token: string) => async(dispatch: Dispatch<PROCESSCLIENTCODE>) => {
   try {
 
-   const res = await getAPIprocessClient(token)
+   const res = await getApiProcessClient(token)
    console.log(res)
     dispatch({
       type: GET_PROCESSCLIENT,

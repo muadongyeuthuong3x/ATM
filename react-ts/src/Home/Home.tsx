@@ -3,19 +3,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import IPage from '../interfaces/page';
 import { Button ,Form   ,Modal} from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify'; 
-import Cookies from 'js-cookie';
-import axios from 'axios'
-import './trangchu.css';
+import './home.css';
 import { ATM }  from '../interfaces/typescript'
-import {createATM  ,getATM ,getQUEUE} from '../store/action/actionATM'
+import {createAtm  ,getAtm ,getQueue} from '../store/action/actionATM'
 import {getApiProcess  } from '../store/action/actionProcessClient'
-import token from './../api/token'
-import {getAPIDELETEATM ,getAPICREATEPEOPLE } from '../api/apiclient'
-import { RootStore } from './../interfaces/typescript'
-const TrangChu: React.FunctionComponent<IPage> = props => {
+import token from '../api/token'
+import {getApiDeleteAtm ,postApiCreatePeople  } from '../api/apiclient'
+import { RootStore } from '../interfaces/typescript'
+const Home: React.FunctionComponent<IPage> = props => {
     
    const dispatch = useDispatch()
-    const [atms ,setatms] =  useState<ATM[]>([]);
     const [nameATM ,setNameATM] =  useState<string>("");
     const [namepeople ,setnamepeople] =useState<string>("");
     const [transaction ,settransaction  ] =  useState<string>('');
@@ -29,7 +26,7 @@ console.log( ProcessClientReducer)
   const handleShow1 = () => setShow1(true);
    const handleCREATEATM = () => {
     
-     dispatch(createATM( nameATM ,token))
+     dispatch(createAtm( nameATM ,token))
      setShow(false);
 
   };
@@ -40,7 +37,7 @@ console.log( ProcessClientReducer)
     
      useEffect(() => {
       setInterval(function(){
-      dispatch(getATM(token))
+      dispatch(getAtm(token))
       },1000);
      }, []);
 
@@ -48,7 +45,7 @@ console.log( ProcessClientReducer)
      useEffect(() => {
       setInterval(function(){
 
-      dispatch(getQUEUE(token))
+      dispatch(getQueue(token))
 
        },1000);
 
@@ -64,12 +61,12 @@ console.log( ProcessClientReducer)
      }, []);
    
      const deleteATM = async(id:string)=>{
-      getAPIDELETEATM(id,token)
+      getApiDeleteAtm(id,token)
      }
      
      const handleCreatePeople = ()=>{
        const numbertransaction =  Number(transaction)
-      getAPICREATEPEOPLE( namepeople ,  numbertransaction ,token)
+       postApiCreatePeople ( namepeople ,  numbertransaction ,token)
       setShow1(false);
      } 
 
@@ -205,5 +202,5 @@ return (
 
 }
 
-export default TrangChu
+export default Home
 

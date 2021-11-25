@@ -1,25 +1,25 @@
 import IRoute from '../interfaces/routes';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
-import TrangChu from '../TrangChu/Trangchu';
+import Home from '../Home/Home';
 
 const routes: IRoute[] = [
     {
         path: '/register',
-        name:"Đăng kí",
+        name:"Register",
         component: Register,
         exact: true
     },
     {
         path: '/login',
-        name :"Đăng nhập",
+        name :"Login",
         component: Login,
         exact: true
     },
     {
-        path: '/trangchu',
-        name :"Trang chủ",
-        component: TrangChu,
+        path: '/home',
+        name :"Home",
+        component: Home,
         exact: true
     }
 ]

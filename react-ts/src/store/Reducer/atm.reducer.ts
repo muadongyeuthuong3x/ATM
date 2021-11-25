@@ -7,7 +7,7 @@ const AtmReducer = (
   ): ATM[] => {
     switch (action.type) {
     case types.CREATE_ATM:
-        return action.payload
+        return    [ action.payload  ,...state]
     case types.GET_ATM:
          return action.payload
       default:
