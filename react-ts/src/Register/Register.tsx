@@ -19,19 +19,20 @@ const Register: React.FunctionComponent<IPage> = (props) => {
       email,
       password,
     };
+    const res = await axios.post(
+      "http://localhost:5000/api/v1/auth/register",
+      valuedk
+    );
 
-    await axios
-      .post("http://localhost:5000/api/v1/auth/register", valuedk)
-      .then((res) => {
-        setTimeout(function () {
-          toast.success(res.data.message);
-        }, 1000);
-        Cookies.set("cookielogin", res.data.PRIVATE_TOKEN);
-        window.location.href = "/home";
-      })
-      .catch((err) => {
-        toast.error(err.response.data);
-      });
+    try {
+      setTimeout(function () {
+        toast.success(res.data.message);
+      }, 1000);
+      Cookies.set("cookielogin", res.data.PRIVATE_TOKEN);
+      window.location.href = "/home";
+    } catch (err: any) {
+      toast.error(err.response.data);
+    }
   };
   return (
     <>
@@ -68,11 +69,12 @@ const Register: React.FunctionComponent<IPage> = (props) => {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                  Register{" "}
+                  Register
                 </Button>
 
-                <br />
-                <Link to="/login">Login </Link>
+                <Link to="/login">
+                  <Button variant="primary" className="buttonlogin"> Login </Button>
+                </Link>
               </Form>
             </div>
           </div>

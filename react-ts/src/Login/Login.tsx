@@ -3,7 +3,7 @@ import IPage from "../interfaces/page";
 import { Button, Form } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "js-cookie";
-import "./login.css";
+import "./login.scss";
 import axios from "axios";
 import { FormSubmit } from "../interfaces/typescript";
 import { Link } from "react-router-dom";
@@ -72,10 +72,10 @@ const Login: React.FunctionComponent<IPage> = (props) => {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                  Login{" "}
+                  Login
                 </Button>
-                <br />
-                <Link to="/register">Register </Link>
+             
+                <Link to="/register">  <Button> Register </Button> </Link>
               </Form>
             </div>
           </div>

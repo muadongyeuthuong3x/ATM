@@ -11,6 +11,10 @@ export interface Registerts {
   password: string;
 }
 
+export interface Login extends Registerts {}
+
+
+
 export interface ATM {
   client: string;
   id: string;
@@ -25,7 +29,7 @@ export interface token {
 }
 
 export interface process {
-  processedClient?: string;
+  processedClient: string;
 }
 export interface queue {
   transaction: string;

@@ -2,7 +2,7 @@ import IRoute from '../interfaces/routes';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
-
+import ShowAtm from '../ShowAtm/ShowAtm'
 const routes: IRoute[] = [
     {
         path: '/register',
@@ -20,6 +20,12 @@ const routes: IRoute[] = [
         path: '/home',
         name :"Home",
         component: Home,
+        exact: true
+    },
+    {
+        path: '/listatm',
+        name :"List Atm",
+        component:ShowAtm,
         exact: true
     }
 ]

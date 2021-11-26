@@ -82,7 +82,7 @@ const deleteAtm = async(req, res, next) => {
     
     try{
         const atm = data.atms.find(e => e.id === atmId)
-        console.log(atm)
+      
 
         const waitForAtm = (i) => {  
             if(data.atms[i].status !== 'Free'){
@@ -118,11 +118,11 @@ setInterval(() => {
         let person = {};
        
         for (var i = 0; i < 8; i++){ 
-            console.log(Math.floor(Math.random() * possible.length))
+
           text += possible.charAt(Math.floor(Math.random() * possible.length))
         };
         for (var i = 0; i < 1; i++){ 
-            console.log(number.charAt(Math.floor(Math.random() * number.length)))
+            
         person.transaction = (number.charAt(Math.floor(Math.random() * number.length)))
         };
     
@@ -132,7 +132,7 @@ setInterval(() => {
 
     data.queues.push(randomPerson())
     data.transactions()
-}, 1000);
+}, 5000);
 
 
 module.exports = { 

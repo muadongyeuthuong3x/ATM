@@ -39,7 +39,8 @@
    cursor: pointer;
 }
 .people{
-    margin-left:10px
+    margin-left:10px;
+    margin-right:10px;
 }
 .transaction{
     margin-top:10px;
@@ -63,3 +64,9 @@
     margin-bottom: 10px;
 }
 
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }

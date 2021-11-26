@@ -19,7 +19,6 @@ const register = async(req, res, next) => {
             email: email,
             password: hashedPassword
         })
-        console.log(user)
         await user.save()
 
         const PRIVATE_TOKEN = jwt.sign(
