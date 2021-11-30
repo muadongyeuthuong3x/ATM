@@ -1,3 +1,5 @@
+$paddingbuton:20px;
+$viewatm :10px;
 .blocktrangchu {
     margin-top: 30px;
 }
@@ -7,15 +9,14 @@
 .blockimg {
     width: 80%;
     text-align: center;
-    margin-left: 10%;
     position: relative;
 }
 .blockimg img{
     width: 100%;
 }
 .viewatms{
-    margin-top:10px;
-    padding-top:10px;
+    margin-top:$viewatm;
+    padding-top:$viewatm;
     overflow-y: scroll;
     height: 300px;
 }
@@ -27,8 +28,8 @@
     height: 50px;
 }
 
-.ttpeople{
-    margin-left: 10px;
+button{
+    padding: $paddingbuton;
 }
 
 .icondeletecar{
@@ -39,11 +40,11 @@
    cursor: pointer;
 }
 .people{
-    margin-left:10px;
-    margin-right:10px;
+    margin-left:$viewatm;
+    margin-right:$viewatm
 }
 .transaction{
-    margin-top:10px;
+    margin-top:$viewatm
 }
 .imgpeople{
     width: 60px;
@@ -59,14 +60,10 @@
 
 .BlockViewPeoples {
     background: white;
-    padding: 10px;
-    font-size: 10px;
-    margin-bottom: 10px;
+    padding: $viewatm;
+    font-size: $viewatm;
+    margin-bottom: $viewatm;
 }
-
-
-@media only screen and (max-width: 600px) {
-    body {
-      background-color: lightblue;
-    }
-  }
+Button{
+    margin: $viewatm;
+}

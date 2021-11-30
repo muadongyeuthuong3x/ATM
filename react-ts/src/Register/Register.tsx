@@ -1,39 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import IPage from "../interfaces/page";
 import { Button, Form } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import Cookies from "js-cookie";
-import "./register.css";
-import axios from "axios";
+import { ToastContainer} from "react-toastify";
+import { useHistory } from "react-router";
+import "./register.scss";
+import { useDispatch } from "react-redux";
 import { FormSubmit } from "../interfaces/typescript";
 import { Link } from "react-router-dom";
+import {registerHome} from './../store/action/auth'
 const Register: React.FunctionComponent<IPage> = (props) => {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
-  useEffect(() => {
-    document.title = props.name;
-  }, []);
-  const handleSubmit = async (e: FormSubmit) => {
-    e.preventDefault();
-    const valuedk = {
-      email,
-      password,
-    };
-    const res = await axios.post(
-      "http://localhost:5000/api/v1/auth/register",
-      valuedk
-    );
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-    try {
-      setTimeout(function () {
-        toast.success(res.data.message);
-      }, 1000);
-      Cookies.set("cookielogin", res.data.PRIVATE_TOKEN);
-      window.location.href = "/home";
-    } catch (err: any) {
-      toast.error(err.response.data);
-    }
-  };
+  const handleSubmit = async (e: FormSubmit) => {
+ 
+  try {
+   e.preventDefault()
+    dispatch(registerHome(email,password))
+   history.push("/home");
+  } catch (error) {
+    
+  }
+}
   return (
     <>
       <div className="blocklogin">

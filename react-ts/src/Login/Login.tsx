@@ -1,41 +1,27 @@
 import React, { useEffect, useState } from "react";
 import IPage from "../interfaces/page";
 import { Button, Form } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import Cookies from "js-cookie";
+import { ToastContainer} from "react-toastify";
 import "./login.scss";
-import axios from "axios";
+import { useHistory } from "react-router";
+import { loginHome} from './../store/action/auth'
 import { FormSubmit } from "../interfaces/typescript";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 const Login: React.FunctionComponent<IPage> = (props) => {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
-  useEffect(() => {
-    document.title = props.name;
-  }, []);
-
-  const handleSubmit = async (e: FormSubmit) => {
-    try {
-      e.preventDefault();
-      const valuedk = {
-        email,
-        password,
-      };
-      const res = await axios.post(
-        "http://localhost:5000/api/v1/auth/login",
-        valuedk
-      );
-      if (res.data.sign === false) {
-        setTimeout(function () {
-          toast.warning(res.data.message);
-        }, 1000);
-        return false;
-      }
-      Cookies.set("cookielogin", res.data.PRIVATE_TOKEN);
-      window.location.href = "/home";
-    } catch (err: any) {
-      //  toast.error(err.response.data)
-    }
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const handleSubmit =  (e: FormSubmit) => {
+try {
+  e.preventDefault()
+  dispatch(loginHome(email ,password))
+  history.push("/home")
+} catch (error) {
+  
+}
+    
   };
   return (
     <>
@@ -74,8 +60,10 @@ const Login: React.FunctionComponent<IPage> = (props) => {
                 <Button variant="primary" type="submit">
                   Login
                 </Button>
-             
-                <Link to="/register">  <Button> Register </Button> </Link>
+
+                <Link to="/register">
+                  <Button variant="primary" className="buttonlogin"> Register </Button>
+                </Link>
               </Form>
             </div>
           </div>

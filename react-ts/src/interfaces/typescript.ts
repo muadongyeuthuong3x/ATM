@@ -24,9 +24,7 @@ export interface ATM {
   remove: boolean;
 }
 
-export interface token {
-  token: string;
-}
+
 
 export interface process {
   processedClient: string;
@@ -35,5 +33,26 @@ export interface queue {
   transaction: string;
   name: string;
 }
+
+
+export interface loaddingData {
+ loadding:boolean
+}
+
+
+
+export interface auth {
+  transaction: string;
+  name: string;
+}
+
+export interface dataLogin{
+  message:string,
+  user:string,
+  PRIVATE_TOKEN:string
+}
+
+
+
 
 export type RootStore = ReturnType<typeof myReducer>;

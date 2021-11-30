@@ -14,4 +14,5 @@ export interface CREATATM{
     payload: ATM[]
   }
 
+  
   export type ATMTYPECODE = CREATATM|GETATM

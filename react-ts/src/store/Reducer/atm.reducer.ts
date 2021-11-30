@@ -4,7 +4,7 @@ import { ATM } from "./../../interfaces/typescript";
 const AtmReducer = (state: ATM[] = [], action: types.ATMTYPECODE): ATM[] => {
   switch (action.type) {
     case types.CREATE_ATM:
-      return [action.payload, ...state];
+      return [...state , action.payload];
     case types.GET_ATM:
       return action.payload;
     default:

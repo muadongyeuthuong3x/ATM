@@ -1,33 +1,26 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import routes from "./config/routes";
+import { BrowserRouter, Route, Switch  ,Redirect} from "react-router-dom";
+import Register from './Register/Register'
 import "react-toastify/dist/ReactToastify.css";
-import token from "../src/api/token";
 import Login from "./Login/Login";
+import Home from './Home/Home'
+import ShowAtm  from './ShowAtm/ShowAtm'
+import tokenlogin from './api/token'
 const App: React.FunctionComponent<{}> = (props) => {
+   
+
   
   return (
     <div>
       <BrowserRouter>
         <Switch>
-          {routes.map((route, index) => {
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                render={() =>
-                  (route.component != "/register" ||
-                    route.component != "/login") &&
-                  token ? (
-                    <route.component name={route.name} />
-                  ) : (
-                    <Login name={"Login"} />
-                  )
-                }
-              />
-            );
-          })}
+          <Route path="/login"  component={Login}/>
+          <Route path="/register"  component={ Register}/>  
+          { tokenlogin ? (<>
+          <Route path="/home"  component={Home}/>    
+          <Route path="/listatm"  component={ShowAtm}/> </> )
+            :<Redirect to="/login" />}
+
         </Switch>
       </BrowserRouter>
     </div>

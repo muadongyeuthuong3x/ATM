@@ -1,17 +1,21 @@
 import axios from "axios"
 import { API_URL } from "./configApi"
 import {Registerts ,Login }  from '../interfaces/typescript'
-export const loginApi = async (input:Login) => {
-    const response = await axios.post(`${API_URL}api/v1/auth/login`, input)
+export const loginApi = async (email:string , password:string) => {
+    const data = {
+        email,
+        password
+    }
+    const response = await axios.post(`${API_URL}api/v1/auth/login`, data)
     return response;
 }
 
-export const registerApi = async (input:Registerts) => {
-    const response = await axios.post(`${API_URL}api/v1/auth/register`, input)
+export const registerApi = async (email:string , password:string) => {
+    const data = {
+        email,
+        password
+    }
+    const response = await axios.post(`${API_URL}api/v1/auth/register`, data)
     return response;
 }
 
-// export const authApi = async () => {
-//     const response = await axios.get(`${API_URL}api/v1/auth`)
-//     return response;
-// }

@@ -3,22 +3,18 @@ import IPage from "../interfaces/page";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form } from "react-bootstrap";
 import { RootStore } from "../interfaces/typescript";
-import { Link } from "react-router-dom";
-import token from "../api/token";
+import { Link } from "react-router-dom"
 import { getAtm } from "../store/action/actionATM";
-import "./showatm.css";
+import "./showatm.scss";
+import Loading from '../Loadding/loadding'
 const ShowAtm: React.FunctionComponent<IPage> = (props) => {
-    const { AtmReducer } = useSelector((state: RootStore) => state);
+    let  AtmReducer = useSelector((state: RootStore) => state.AtmReducer);
     const dispatch = useDispatch();
-    useEffect(() => {
-        document.title = props.name;
-    }, []);
-
     useEffect(() => {
         if (AtmReducer.length === 0) {
             setInterval(function () {
-                dispatch(getAtm(token));
-            }, 1000);
+                dispatch(getAtm());
+            }, 5000);
         }
     }, []);
 
@@ -30,7 +26,7 @@ const ShowAtm: React.FunctionComponent<IPage> = (props) => {
                     <Button className="btn btn-button combackhome"> Home </Button>
                 </Link>
                 <div className="row">
-                    {AtmReducer.length === 0
+                    {   AtmReducer.length === 0
                         ? "Data ....."
                         : AtmReducer.map((data, index) => {
                             return (

@@ -1,5 +1,3 @@
+var tokenlogin =localStorage.getItem("tokenhome") 
 
-
-import Cookies from 'js-cookie';
-let token =  Cookies.get('cookielogin');
-export default token as string
+export default tokenlogin as string;
